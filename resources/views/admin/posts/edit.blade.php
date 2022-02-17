@@ -27,6 +27,18 @@
                                  <div class="alert alert-danger my-2"> {{$message}}</div>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <label for="category">Categories</label>
+                                <select class="custom-select @error('category_id') is-invalid @enderror" name="category_id" id="category">
+                                    <option value="">Choose a categories</option>
+                                    @foreach ($categories as $category)
+                                    <option value="{{$category->id}}" {{old('title', $post->category_id) == $category->id ? "selected" : ""}}>{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
+                                 <div class="alert alert-danger my-2"> {{$message}}</div>
+                                @enderror
+                            </div>
                             <div class="form-group form-check">
                                 @php
                                     $published = old('published') ? old('published') : $post->published;
