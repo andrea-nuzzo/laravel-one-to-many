@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Post;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -13,6 +14,7 @@ class PostController extends Controller
         "title"=>"required|string|max:100",
         "content"=>"required",
         "puplished"=>"sometimes|accepted",
+        "category_id"=>"nullable|exists:categories,id",
     ];
 
     /**
@@ -34,7 +36,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("admin.posts.create");
+        $categories = Category::all();
+
+        return view("admin.posts.create", compact("categories"));
     }
 
     /**
@@ -46,7 +50,6 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
         $request->validate($this->validation);
 
         // $newPost = Post::create($data);
@@ -55,6 +58,7 @@ class PostController extends Controller
         $newPost->title = $data["title"];
         $newPost->content = $data["content"];
         $newPost->published = isset($data["published"]);
+        $newPost->category_id = $data["category_id"];
         
         //SLUG
         $slug = Str::of($newPost->title)->slug("-");
