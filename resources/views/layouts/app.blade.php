@@ -17,9 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
-<body class="">
+<body class="bg-dark">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -77,7 +77,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 bg-dark">
             @yield('content')
         </main>
     </div>

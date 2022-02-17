@@ -10962,3 +10962,43 @@ a.text-dark:focus {
   }
 }
 
+.createBtn {
+  background-color: #bfe1c2;
+}
+
+.bozza {
+  background-color: #ff4747;
+}
+
+.createBtn:hover {
+  transform: scale(1.1);
+}
+
+.updateBtn:hover,
+.showBtn:hover {
+  background-color: #975fdc;
+  color: white;
+}
+
+.deleteBtn:hover {
+  background-color: #f94144;
+  color: white;
+}
+
+.title,
+.slug {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bgColor {
+  background-color: rgba(151, 95, 220, 0.3);
+  border-radius: 0.5rem;
+}
+
+.showCategory {
+  background-color: #975fdc;
+  color: white;
+}
+

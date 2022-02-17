@@ -45,7 +45,8 @@
                                 @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-outline-dark">Crea</button>
+                            <button type="submit" class="btn updateBtn">Creates</button>
+                            <a href="{{route("posts.index")}}"><button type="button" class="btn  showBtn">Return to Dashboard</button></a>
                         </form>
                     </div>
                 </div>
